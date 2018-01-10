@@ -1,0 +1,116 @@
+urxvt.intensityStyles: false
+urxvt.scrollBar: false
+
+! Ctrl Up and Down control font size
+urxvt.resize-font.smaller: C-Down
+urxvt.resize-font.bigger: C-Up
+! copy paste
+urxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+urxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+
+! disable ctrl-shift
+urxvt.iso14755: false
+urxvt.iso14755_52: false
+
+! font
+!urxvt.font: xft:Inconsolata:size=9:antialias=true:hinting=true,xft:Liberation Mono:size=13:antialias=true:hinting=true
+!urxvt.font: xft:Source Code Pro Medium:size=9:antialias=true:hinting=true,xft:Inconsolata:size=9:antialias=true:hinting=true
+!urxvt.font: xft:Inconsolata for Powerline:size=9:antialias=true:hinting=true,xft:Inconsolata:size=9:antialias=true:hinting=true
+urxvt.font: xft:Inconsolata:size=9:antialias=true:hinting=true, xft:Inconsolata for Powerline
+
+! terminal padding
+urxvt.internalBorder: 5
+
+Xft.autohint:   0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting:    true
+Xft.antialias:  true
+Xft.rgba:       rgb
+
+! clickable links, clipboard support, mouse wheel support, and on the fly font resizing
+urxvt.perl-ext-common: default,matcher,clipboard,vtwheel,resize-font
+urxvt.url-launcher: /usr/bin/chromium
+urxvt.matcher.button: 1
+urxvt.matcher.rend.0: Bold fg6
+
+! colors
+urxvt.cursorColor:  #ebdbb2
+urxvt.background: #282828
+urxvt.foreground: #ebdbb2
+
+! black
+urxvt.color0:       #282828
+urxvt.color8:       #928374
+
+! red
+urxvt.color1:       #cc241d
+urxvt.color9:       #fb4934
+
+! green
+urxvt.color2:       #98971a
+urxvt.color10:      #b8bb26
+
+! yellow
+urxvt.color3:       #d79921
+urxvt.color11:      #fabd2f
+
+! blue
+urxvt.color4:       #458588
+urxvt.color12:      #83a598
+
+! magenta
+urxvt.color5:       #b16286
+urxvt.color13:      #d3869b
+
+! cyan
+urxvt.color6:       #689d6a
+urxvt.color14:      #8ec07c
+
+! white
+urxvt.color7:       #a89984
+urxvt.color15:      #ebdbb2
+
+! 256 color resources
+urxvt.color24:  #076678
+urxvt.color66:  #427b58
+urxvt.color88:  #9d0006
+urxvt.color96:  #8f3f71
+urxvt.color100: #79740e
+urxvt.color108: #8ec07c
+urxvt.color109: #83a598
+urxvt.color130: #af3a03
+urxvt.color136: #b57614
+urxvt.color142: #b8bb26
+urxvt.color167: #fb4934
+urxvt.color175: #d3869b
+urxvt.color208: #fe8019
+urxvt.color214: #fabd2f
+urxvt.color223: #ebdbb2
+urxvt.color228: #f4e8ba
+urxvt.color229: #fdf4c1
+urxvt.color230: #ffffc8
+urxvt.color234: #1d2021
+urxvt.color235: #282828
+urxvt.color236: #32302f
+urxvt.color237: #3c3836
+urxvt.color239: #504945
+urxvt.color241: #665c54
+urxvt.color243: #7c6f64
+urxvt.color244: #928374
+urxvt.color245: #928374
+urxvt.color246: #a89984
+urxvt.color248: #bdae93
+urxvt.color250: #d5c4a1
+
+! rofi theme
+rofi.color-enabled: true
+!                  bg       border   separator
+rofi.color-window: argb:d0282828, #a89984, #a89984
+!                  bg             fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: argb:d0282828, #ebdbb2, argb:d032302f, #665c54, #fbf1c7
+rofi.color-active: argb:d0d79921, #282828, argb:d0d79921, #fabd2f, #282828
+rofi.color-urgent: argb:d0cc241d, #282828, argb:d0cc241d, #fb4934, #282828
+
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
