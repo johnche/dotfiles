@@ -4,6 +4,7 @@ urxvt.scrollBar: false
 ! Ctrl Up and Down control font size
 urxvt.resize-font.smaller: C-Down
 urxvt.resize-font.bigger: C-Up
+
 ! copy paste
 urxvt.keysym.Shift-Control-V:   perl:clipboard:paste
 urxvt.keysym.Shift-Control-C:   perl:clipboard:copy
@@ -30,13 +31,22 @@ Xft.rgba:       rgb
 
 ! clickable links, clipboard support, mouse wheel support, and on the fly font resizing
 urxvt.perl-ext-common: default,matcher,clipboard,vtwheel,resize-font
-urxvt.url-launcher: /usr/bin/chromium
+!urxvt.url-launcher: /usr/bin/chromium
 urxvt.matcher.button: 1
 urxvt.matcher.rend.0: Bold fg6
 
+! Fake transparency
+!urxvt.transparent: true
+!urxvt.shading: 95
+
+! Real transparency (I use compton)
+urxvt.depth: 32
+!urxvt.background: rgba:0000/0000/0200/c800
+urxvt.background: rgba:2000/2000/2000/fc80
+
 ! colors
 urxvt.cursorColor:  #ebdbb2
-urxvt.background: #282828
+!urxvt.background: #282828
 urxvt.foreground: #ebdbb2
 
 ! black
