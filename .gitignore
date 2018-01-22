@@ -1,3 +1,4 @@
 nvim/.config/nvim/plugged/*
+nvim/.config/nvim/shada/*
 !nvim/.config/nvim/autoload
 !nvim/.config/nvim/init.vim
