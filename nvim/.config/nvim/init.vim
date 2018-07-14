@@ -8,13 +8,22 @@
 " {{{ PLUGINS
 call plug#begin('~/.config/nvim/plugged')
     Plug 'morhetz/gruvbox'                                          " theme
-    Plug 'vim-airline/vim-airline'                                  " status line
+    Plug 'YorickPeterse/happy_hacking.vim'                          " theme
+    Plug 'junegunn/seoul256.vim'                                    " theme
+    Plug 'nightsense/vimspectr'                                     " theme
+    Plug 'nightsense/simplifysimplify'                              " theme
+"    Plug 'vim-airline/vim-airline'                                  " status line
     Plug 'airblade/vim-gitgutter'                                   " show git diffs
     Plug 'scrooloose/nerdtree'                                      " file browser
     Plug 'w0rp/ale'                                                 " linting
     Plug 'Yggdroot/indentLine'                                      " indentation guides
     Plug 'majutsushi/tagbar'                                        " code browser
     Plug 'tpope/vim-surround'                                       " quote manipulation
+	Plug 'alvan/vim-closetag'
+	Plug 'ElmCast/elm-vim'
+"	Plug 'neoclide/vim-jsx-improve'
+	Plug 'mxw/vim-jsx'
+	Plug 'mattn/emmet-vim'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " code completion
 call plug#end()
 " }}}
@@ -25,47 +34,53 @@ let g:indentLine_setColors = 0
 let g:indentLine_char = '▏'
 let g:indentLine_conceallevel = 0 " disable hiding symbols
 
-" airline
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_section=''
-let g:airline_detect_paste=1 " Show PASTE if in paste mode
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+"" airline
+"let g:airline#extensions#ale#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_section=''
+"let g:airline_detect_paste=1 " Show PASTE if in paste mode
+"let g:airline_powerline_fonts = 1
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
+"
+"" unicode symbols
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+""let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+"" airline symbols
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" NERDTree
-nmap <silent><Leader>t :NERDTreeToggle<CR> " open NERDTree with \t
+" closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
 
 " Use deoplete
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
 " Python interpreters
-let g:python_host_prog='/usr/bin/python'
-let g:python3_host_prog='/usr/bin/python3'
+"let g:python_host_prog='/usr/bin/python'
+"let g:python3_host_prog='/usr/bin/python3'
 " }}}
 
 " {{{ BEHAVIOR
@@ -101,7 +116,7 @@ set mouse=a         " allow mouse control in all modes
 set noswapfile      " plenty of RAM, do not need swap
 set nobackup        " remembering to save often
 set nowritebackup   " is the best kind of backup
-set undolevels=1000 " undo history to keep
+set undolevels=100000 " undo history to keep
 
 " panes
 set splitbelow      " open new panes on the bottom
@@ -121,31 +136,31 @@ set nostartofline           " sticky columns when moving cursor
 " line numbers
 set number                  " show line numbers
 set numberwidth=3           " pad number column
-set colorcolumn=101          " highlight 81st column
+set colorcolumn=101          " highlight 100th column
 " uncomment to highlight all columns beyond the 80th
 " execute "set colorcolumn=" . join(range(81,335), ',')
 
 " status line
-set showcmd                 " show command in statusline
-set ruler                   " show line and cursor position
-set laststatus=2            " wider status line for airline
-set noshowmode              " hide the default mode text
-set nomodeline              " hide the default mode line
-set shortmess=atToOI        " avoid prompts caused by the file messages
-set updatetime=1500         " status line refresh time
+"set showcmd                 " show command in statusline
+"set ruler                   " show line and cursor position
+"set laststatus=2            " wider status line for airline
+"set noshowmode              " hide the default mode text
+"set nomodeline              " hide the default mode line
+"set shortmess=atToOI        " avoid prompts caused by the file messages
+"set updatetime=1500         " status line refresh time
 
 " whitespace
-set listchars=tab:>-,trail:·        " show tabs and trailing space
+set listchars=tab:>\ ,trail:·        " show tabs and trailing space
 set list                            " enable the above settings
 autocmd BufWritePre * :%s/\s\+$//e  " auto remove trailing whitespace
 
 " colours
-set t_Co=256                " enable 256 colour themes
+"set t_Co=256                " enable 256 colour themes
 colorscheme gruvbox         " gruvbox colourscheme
+"colorscheme seoul256
 set background=dark         " use dark background
-" hi Normal ctermbg=none    " transparent background
 
-" set cursorline              " highlight current line
+set cursorline              " highlight current line
 set ttyfast                 " improves redrawing for newer computers
 " }}}
 
@@ -153,7 +168,7 @@ set ttyfast                 " improves redrawing for newer computers
 set tabstop=4               " width of tab character
 set softtabstop=4           " how many columns the tab key inserts
 set shiftwidth=4            " width of indentation levels
-set expandtab               " expand tabs into spaces
+set noexpandtab               " Use tabs
 set smartindent             " smart autoindenting
 filetype plugin indent on   " determine indentation rules by filetype
 
@@ -167,6 +182,9 @@ set foldcolumn=0
 " {{{ KEYBINDINGS
 let mapleader = ' '         " use spacebar as map leader
 let g:mapleader = ' '       " same-same but different
+
+" NERDTree
+nnoremap <Leader>n  :NERDTreeToggle<CR>
 
 " indentLine
 nnoremap <Leader>i  :IndentLinesToggle<CR>
