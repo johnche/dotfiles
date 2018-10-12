@@ -171,6 +171,7 @@ set shiftwidth=4            " width of indentation levels
 set noexpandtab               " Use tabs
 set smartindent             " smart autoindenting
 filetype plugin indent on   " determine indentation rules by filetype
+let g:python_recommended_style=0 " 4-spaced tabs please
 
 " folding
 set foldenable
