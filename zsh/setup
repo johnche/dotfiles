@@ -6,7 +6,7 @@ XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 
 cat << 'EOF' > $HOME/.zshenv
 # Only for initializing
-ZDOTDIR=$HOME/.config/zsh
+export ZDOTDIR=$HOME/.config/zsh
 source $ZDOTDIR/.zshenv
 EOF
 
