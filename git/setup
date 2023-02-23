@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+declare -r CWD="$(readlink -f $0 | xargs dirname)"
+
+install -d $HOME/.config/git
+ln -s "$CWD/config" "$HOME/.config/git/config"
+
+echo "GIT: remember to setup ssh access"

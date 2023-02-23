@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+error() {
+	echo "$@"
+	exit 1
+}
+
+declare -r CWD="$(readlink -f $0 | xargs dirname)"
+
+command -v "emacs" || error "missing emacs (gui)"
+
+install -d $HOME/.local/lib
+git clone https://github.com/hilssner/doom-emacs "$HOME/.local/lib/doom"
+. "$HOME/.local/lib/doom/bin/doom" install
+
+install -d $HOME/.config/doom
+ln -s "$CWD/config.el" "$HOME/.config/doom/config.el"
+ln -s "$CWD/init.el" "$HOME/.config/doom/init.el"
+ln -s "$CWD/packages.el" "$HOME/.config/doom/packages.el"

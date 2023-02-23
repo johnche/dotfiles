@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+set -e
+
+CWD="$(dirname $0)"
+
+setup() {
+	source "$CWD/$1/setup"
+}
+
+error() {
+	echo "Error: $1"
+	echo "exiting"
+	exit 1
+}
+
+command -v "git" > /dev/null || error "Missing git"
+command -v "wget" > /dev/null || error "Missing wget"
+command -v "curl" > /dev/null || error "Missing curl"
+command -v "jq" > /dev/null || error "Missing jq"
+
+install -d "$HOME/.local/bin"
+install -d "$HOME/.local/lib"
+
+git clone git@github.com:johnche/brrr "$HOME/.local/brrr"
+ln -s "$HOME/.local/brrr/brrr" "$HOME/.local/bin/brrr"
+$HOME/.local/bin/brrr > /dev/null
+
+setup "git"
+setup "zsh"
+setup "nvim"
+setup "emacs"

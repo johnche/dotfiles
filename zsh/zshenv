@@ -1,0 +1,28 @@
+fpath=("$HOME/.config/zsh/pure" $fpath)
+set -o emacs
+
+setopt EXTENDED_HISTORY
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt appendhistory
+
+export HISTFILE=~/.config/zsh/history
+export HISTSIZE=10000000
+export SAVEHIST=$HISTSIZE
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export GOPATH="$HOME/.local/lib/go"
+export GOBIN="$GOPATH/bin"
+
+# SDKMAN / jdk
+export SDKMAN_DIR="$HOME/.local/lib/sdkman"
+export SDKMAN_DIR_RAW='$HOME/.local/lib/sdkman'
+
+export EDITOR='vim'
+export GIT="$HOME/git"
+export GREP_OPTIONS='--color=auto'
+
+# Requires source-highlight package
+#export LESSOPEN='| /opt/local/bin/src-hilite-lesspipe.sh %s'
+export LESS=' -R '

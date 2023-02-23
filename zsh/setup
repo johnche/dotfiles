@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+set -e
+
+CWD="$(readlink -f $0 | xargs dirname)"
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+
+cat << 'EOF' > $HOME/.zshenv
+# Only for initializing
+ZDOTDIR=$HOME/.config/zsh
+source $ZDOTDIR/.zshenv
+EOF
+
+install -d "$XDG_CONFIG_HOME/zsh/plugged"
+install -d "$XDG_CONFIG_HOME/zsh/functions"
+
+git clone "https://github.com/sindresorhus/pure" "$XDG_CONFIG_HOME/zsh/pure"
+git clone "https://github.com/zsh-users/zsh-syntax-highlighting" "$XDG_CONFIG_HOME/zsh/syntax-highlighting"
+
+ln -s "$CWD/zshenv" "$XDG_CONFIG_HOME/zsh/.zshenv"
+ln -s "$CWD/zshrc" "$XDG_CONFIG_HOME/zsh/.zshrc"
+ln -s "$CWD/pathvars" "$XDG_CONFIG_HOME/zsh/pathvars"
+ln -s "$CWD/aliases" "$XDG_CONFIG_HOME/zsh/aliases"

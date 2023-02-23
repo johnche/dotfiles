@@ -1,0 +1,25 @@
+# This is Git's per-user configuration file.
+[user]
+	name = johnche
+	email = john20chen@gmail.com
+[core]
+	editor = nvim
+	pager = less -+$LESS -RSFXK
+	eol = lf
+[log]
+        date = relative
+[format]
+        pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+[branch]
+	sort = committerdate
+[alias]
+	co = checkout
+	br = branch --format='%(color:yellow)%(committerdate:short) %(color:blue)%(authoremail:localpart) %(color:reset)%(refname:short)' --sort=committerdate
+[mergetool]
+	prompt = false
+[mergetool "nvim"]
+	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[merge]
+	tool = nvim
+[url "git@github.com:"]
+	insteadOf = https://github.com/
