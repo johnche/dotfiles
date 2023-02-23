@@ -10,9 +10,6 @@ ZDOTDIR=$HOME/.config/zsh
 source $ZDOTDIR/.zshenv
 EOF
 
-install -d "$XDG_CONFIG_HOME/zsh/plugged"
-install -d "$XDG_CONFIG_HOME/zsh/functions"
-
 git clone "https://github.com/sindresorhus/pure" "$XDG_CONFIG_HOME/zsh/pure"
 git clone "https://github.com/zsh-users/zsh-syntax-highlighting" "$XDG_CONFIG_HOME/zsh/syntax-highlighting"
 
