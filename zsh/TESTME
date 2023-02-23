@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-
-CWD="$(readlink -f $0 | xargs dirname)"
-echo "$CWD"
