@@ -1,6 +1,7 @@
 fpath=("$HOME/.config/zsh/pure" $fpath)
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export DOOMDIR="$XDG_CONFIG_HOME/doom"
 
 export GOPATH="$HOME/.local/lib/go"
 export GOBIN="$GOPATH/bin"

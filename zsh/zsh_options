@@ -1,0 +1,16 @@
+autoload -Uz compinit && compinit
+autoload -U promptinit; promptinit
+prompt pure
+
+set -o emacs
+
+setopt EXTENDED_HISTORY
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt appendhistory
+
+export HISTFILE=~/.config/zsh/history
+export HISTSIZE=10000000
+export SAVEHIST=$HISTSIZE
+
+
