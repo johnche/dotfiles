@@ -1,6 +1,6 @@
-source "$(dirname $0)/zsh_options"
-source "$(dirname $0)/pathvars"
-source "$(dirname $0)/aliases"
+source "$HOME/.config/zsh/zsh_options"
+source "$HOME/.config/zsh/pathvars"
+source "$HOME/.config/zsh/aliases"
 
 export NPM_CONFIG_PREFIX=$HOME/.local
 export PREFIX=$HOME/.local/bin

@@ -13,7 +13,10 @@ EOF
 git clone "https://github.com/sindresorhus/pure" "$XDG_CONFIG_HOME/zsh/pure"
 git clone "https://github.com/zsh-users/zsh-syntax-highlighting" "$XDG_CONFIG_HOME/zsh/syntax-highlighting"
 
+install -d $HOME/.config/zsh/plugged
+
 ln -s "$CWD/zshenv" "$XDG_CONFIG_HOME/zsh/.zshenv"
 ln -s "$CWD/zshrc" "$XDG_CONFIG_HOME/zsh/.zshrc"
 ln -s "$CWD/pathvars" "$XDG_CONFIG_HOME/zsh/pathvars"
 ln -s "$CWD/aliases" "$XDG_CONFIG_HOME/zsh/aliases"
+ln -s "$CWD/zsh_options" "$XDG_CONFIG_HOME/zsh/zsh_options"
