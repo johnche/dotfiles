@@ -1,7 +1,4 @@
-autoload -Uz compinit && compinit
-autoload -U promptinit; promptinit
-prompt pure
-
+source "$(dirname $0)/zsh_options"
 source "$(dirname $0)/pathvars"
 source "$(dirname $0)/aliases"
 
