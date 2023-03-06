@@ -1,15 +1,16 @@
 # The earlier path segments gets higher priority
 # If unimportant, append the new addition. If important, prepend it
-export PATH="$PATH:$GOBIN"
+#export PATH="$PATH:$GOBIN"
 
 #export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 #export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Requires emacs-app (macports)
-export PATH="$PATH:$HOME/.local/lib/doom/bin"
 export PATH="$PATH:/Applications/MacPorts/Emacs.app/Contents/MacOS"
+# doom bin dir
+export PATH="$PATH:$HOME/.emacs.d/bin"
 
-export PATH="/opt/local/sbin:$PATH"
-export PATH="/opt/local/bin:$PATH"
+#export PATH="/opt/local/sbin:$PATH"
+#export PATH="/opt/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
