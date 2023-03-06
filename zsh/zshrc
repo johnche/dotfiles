@@ -6,6 +6,7 @@ export NPM_CONFIG_PREFIX=$HOME/.local
 export PREFIX=$HOME/.local/bin
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 
+eval "$(direnv hook zsh)"
 
 # =========== Keep at end ===============
 # Ad hoc configs
