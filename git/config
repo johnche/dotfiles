@@ -4,7 +4,8 @@
 	email = john20chen@gmail.com
 [core]
 	editor = nvim
-	pager = less -+$LESS -RSFXK
+	#pager = less -+$LESS -RSFXK
+	pager = cat
 	eol = lf
 [log]
         date = relative
