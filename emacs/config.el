@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "John Chen"
+      user-mail-address "john20chen@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -32,7 +32,6 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;;(setq doom-theme 'doom-solarized-light)
 (setq doom-theme 'doom-solarized-light)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -82,7 +81,10 @@
 
 ;; https://github.com/doomemacs/doomemacs/issues/4178
 (setq ns-right-alternate-modifier 'meta)
+
+;; is this one necessary?
 (setq lsp-rust-server 'rust-analyzer)
+
 
 (map!
  :desc "Next error" :n "] g" #'flycheck-next-error
@@ -115,8 +117,25 @@
       "x" #'custom/split-file-open
       )
 
+(after! dired
+  (add-hook 'dired-mode-hook #'display-line-numbers-mode)
+  )
+
+
+(after! vterm
+  (add-hook 'vterm-mode-hook (lambda nil (evil-emacs-state t)))
+  )
+
 (use-package! lsp
-    :ensure
-    :custom
-    (lsp-rust-analyzer-server-display-inlay-hints t)
-)
+  :ensure
+  :custom
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+  )
+
+;; (use-package dired-subtree
+;;   :ensure t
+;;   :after dired
+;;   :config
+;;   (bind-key "<tab>" #'dired-subtree-toggle dired-mode-map)
+;;   (bind-key "<backtab>" #'dired-subtree-cycle dired-mode-map)
+;;   )
