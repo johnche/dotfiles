@@ -79,68 +79,10 @@ set list listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
 set mouse=a
 set pastetoggle=<F2>
-noremap <Up> :bnext<LF>
-noremap <Down> :bprev<LF>
-noremap <Left> :tabprev<LF>
-noremap <Right> :tabnext<LF>
-
-nnoremap <C-p> :Files<LF>
-nnoremap <C-j> :Buffers<LF>
-nnoremap <C-h> :GFiles<LF>
-nnoremap <C-n> :Rg<LF>
-
-nmap <silent> <A-Up> :wincmd k<LF>
-nmap <silent> <A-Down> :wincmd j<LF>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<LF>
-
-noremap <C-b> :Git blame<LF>
-noremap <F7> :NERDTreeToggle<LF>
-noremap <F8> :TagbarToggle<LF>
-noremap <F5> :GundoToggle<LF>
-noremap <F1> :ccl<LF>
-
-noremap <F12> <Esc>:syntax sync fromstart<CR>
-inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
 " XML folding
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
-
-"source $HOME/.config/nvim/timestamp.vim
-"noremap <F4> :TimeStampToggle<LF>
-"noremap <F3> !!date<LF>
-
-"tags
-"set statusline+=%{gutentags#statusline()}
-set tags=~/.cache/tags/.tags;,.tags
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
-let g:gutentags_ctags_tagfile = '.tags'
-let g:gutentags_modules = ['ctags']
-let g:gutentags_cache_dir = expand('~/.config/nvim/tags')
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
-let g:tagbar_ctags_bin = 'ctags'
-let g:tagbar_type_typescript = {
-  \ 'ctagsbin' : 'tstags',
-  \ 'ctagsargs' : '-f-',
-  \ 'kinds': [
-    \ 'e:enums:0:1',
-    \ 'f:function:0:1',
-    \ 't:typealias:0:1',
-    \ 'M:Module:0:1',
-    \ 'I:import:0:1',
-    \ 'i:interface:0:1',
-    \ 'C:class:0:1',
-    \ 'm:method:0:1',
-    \ 'p:property:0:1',
-    \ 'v:variable:0:1',
-    \ 'c:const:0:1',
-  \ ],
-  \ 'sort' : 0
-\ }
 
 
 " Accept extra key after <c-z>
@@ -158,5 +100,7 @@ au BufRead,BufNewFile *.tsx set filetype=typescriptreact
 au BufRead,BufNewFile *.jsx set filetype=javascriptreact
 packloadall
 
+execute "source" "$HOME/.config/nvim/modules/keybindings.vim"
+execute "source" "$HOME/.config/nvim/modules/gutentags.vim"
 execute "source" "$HOME/.config/nvim/modules/coc.vim"
 "execute "source" "$HOME/.config/nvim/modules/nvim-lsp.vim"
