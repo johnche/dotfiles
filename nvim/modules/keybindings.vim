@@ -14,11 +14,12 @@ nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<LF>
 
 noremap <C-b> :Git blame<LF>
+
+set pastetoggle=<F2>
+
+noremap <F1> :ccl<LF>
+noremap <F5> :GundoToggle<LF>
 noremap <F7> :NERDTreeToggle<LF>
 noremap <F8> :TagbarToggle<LF>
-noremap <F5> :GundoToggle<LF>
-noremap <F1> :ccl<LF>
-
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
-
