@@ -5,7 +5,7 @@ prompt pure
 set -o emacs
 
 setopt EXTENDED_HISTORY
-setopt hist_ignore_all_dups
+#setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt appendhistory
 

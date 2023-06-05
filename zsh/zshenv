@@ -17,3 +17,4 @@ export GREP_OPTIONS='--color=auto'
 # Requires source-highlight package
 #export LESSOPEN='| /opt/local/bin/src-hilite-lesspipe.sh %s'
 export LESS=' -R '
+. "$HOME/.cargo/env"
