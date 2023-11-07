@@ -47,8 +47,8 @@ set undodir=$HOME/.config/nvim/undodir
 set wildignore+=*/node_modules/*,*/.git/*
 
 syntax on
-set background=light
-colorscheme solarized
+"set background=light
+colorscheme gruvbox
 
 "set background=dark
 "colorscheme seoul256
