@@ -9,7 +9,7 @@ alias gb='git branch'
 alias gnp='git --no-pager'
 
 alias tree='tree -I "target|webpack-cache|node_modules|gemini-report"'
-alias grep='grep --exclude-dir={target,webpack-cache,node_modules,gemini-report}'
+alias grep='grep --exclude-dir={target,webpack-cache,node_modules,gemini-report,coverage,dist,.svelte-kit}'
 alias telnet='gtelnet'
 alias ls='ls --color=always'
 alias ll='ls -ahl'
