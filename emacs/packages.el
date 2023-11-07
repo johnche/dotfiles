@@ -53,3 +53,4 @@
 (package! evil-snipe :disable t)
 (package! protobuf-mode)
 (package! string-inflection)
+(package! svelte-mode)

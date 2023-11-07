@@ -132,6 +132,14 @@
   (lsp-rust-analyzer-server-display-inlay-hints t)
   )
 
+(after! lsp-ui
+  (setq lsp-ui-doc-enable t))
+
+;; (setq lsp-svelte-plugin-typescript-enable t)
+
+;; (after! svelte-mode
+;;   (add-hook 'svelte-mode-local-vars-hook #'lsp! 'append))
+
 ;; (use-package dired-subtree
 ;;   :ensure t
 ;;   :after dired
