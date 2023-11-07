@@ -13,3 +13,4 @@ alias grep='grep --exclude-dir={target,webpack-cache,node_modules,gemini-report,
 alias telnet='gtelnet'
 alias ls='ls --color=always'
 alias ll='ls -ahl'
+alias vim='nvim'
