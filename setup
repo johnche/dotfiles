@@ -18,14 +18,15 @@ command -v "wget" > /dev/null || error "Missing wget"
 command -v "curl" > /dev/null || error "Missing curl"
 command -v "jq" > /dev/null || error "Missing jq"
 
+[[ "$#" == 0 ]] && error "No target provided"
+
 install -d "$HOME/.local/bin"
 install -d "$HOME/.local/lib"
 
 #git clone git@github.com:johnche/brrr "$HOME/.local/brrr"
 #$HOME/.local/brrr/brrr
 
-setup "git"
-setup "zsh"
-setup "nvim"
-setup "emacs"
-setup "nix"
+for target in "$@"; do
+	echo "Installing $target"
+	setup "$target"
+done
