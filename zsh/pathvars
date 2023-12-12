@@ -5,12 +5,19 @@
 #export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 #export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
+# macports stuff
+export PATH="/opt/local/sbin:$PATH"
+export PATH="/opt/local/bin:$PATH"
 # Requires emacs-app (macports)
 export PATH="$PATH:/Applications/MacPorts/Emacs.app/Contents/MacOS"
+
 # doom bin dir
 export PATH="$PATH:$HOME/.emacs.d/bin"
 
-export PATH="/opt/local/sbin:$PATH"
-export PATH="/opt/local/bin:$PATH"
+# Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Go
+export PATH="$GOBIN:$PATH"
+
 export PATH="$HOME/.local/bin:$PATH"
