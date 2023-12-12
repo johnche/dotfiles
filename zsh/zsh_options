@@ -8,9 +8,8 @@ setopt EXTENDED_HISTORY
 #setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt appendhistory
+unsetopt BEEP
 
 export HISTFILE=~/.config/zsh/history
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
-
-
