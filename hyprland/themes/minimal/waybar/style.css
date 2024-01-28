@@ -52,8 +52,8 @@ CSS provided by Flick0
 more can be read here: https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
 */
 #workspaces {
-  min-height: 45px;
-  font-size: 16px;
+  min-height: 25px;
+  font-size: 12px;
   margin-bottom: 0px;
   border-radius: 10px;
   transition: none;
@@ -62,8 +62,7 @@ more can be read here: https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
 }
 
 #workspaces button {
-  min-width: 40px;
-  padding: 5px 10px;
+  min-width: 20px;
   margin: 5px 5px 0px 0px;
   border: 2px solid #eae9f0;
   box-shadow: #eae9f0 0px 0px 0px 0px;
@@ -81,6 +80,7 @@ more can be read here: https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
 }
 
 #workspaces button.active {
+  font-weight: bold;
   padding: 5px 10px;
   margin: 5px 5px 0px 0px;
   border: 2px solid #eae9f0;
@@ -105,7 +105,8 @@ more can be read here: https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
   box-shadow: #eae9f0 0px 3px 0px 0px;
 }
 
-/* #workspaces button.occupied {
+/*
+#workspaces button.occupied {
 	transition: none;
 	color: #F28FAD;
 	background: transparent;
@@ -129,7 +130,8 @@ more can be read here: https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
 
 #workspaces button.focused:hover {
     color: #E8A2AF;
-} */
+}
+*/
 #mode,
 #battery,
 #cpu,

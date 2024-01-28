@@ -3,7 +3,7 @@
     "position": "top",
     "height": 55,
     "modules-left": [
-        "wlr/workspaces"
+        "hyprland/workspaces"
     ],
     "modules-center": [
         "custom/appname"
@@ -15,7 +15,6 @@
         "pulseaudio",
         "bluetooth",
         "network",
-        "battery",
         "clock"
     ],
     "custom/launcher": {
@@ -23,48 +22,25 @@
         "on-click": "wofi --show drun -o DP-3",
         "on-click-right": "killall wofi"
     },
-    "custom/apatheia": {
-        "format": "{}",
-        "exec": "python ~/.config/hypr/themes/minimal/waybar/modules/Apatheia/main.py"
-    },
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
         "sort-by-number": true,
         "format-icons": {
-            "1": "I",
-            "2": "II",
-            "3": "III",
-            "4": "IV",
-            "5": "V",
-            "6": "VI",
-            "7": "VII",
-            "8": "VIII",
-            "9": "IX",
-            "10": "X",
-            "11": "XI",
-            "12": "XII",
-            "13": "XIII",
-            "14": "XIV",
-            "15": "XV",
-            "16": "XVI",
-            "17": "XVII",
-            "18": "XVIII",
-            "19": "XIX",
-            "21": "XXI",
-            "22": "XXII",
-            "23": "XXIII",
-            "24": "XXIV",
-            "25": "XXV",
-            "26": "XXVI",
-            "27": "XXVII",
-            "28": "XXVIII",
-            "29": "XXIX",
-            "30": "XXX",
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
             "urgent": ""
         }
     },
-    "wlr/window": {
+    "hyprland/window": {
         "max-length": 80,
         "tooltip": false
     },
@@ -73,31 +49,8 @@
         "format": "{:%a %d %b - %H:%M:%S}",
         "on-click": "morgen"
     },
-    "battery": {
-        "format": "{icon}",
-        "format-alt": "{time} {icon} ",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "format-charging": "",
-        "interval": 30,
-        "states": {
-            "warning": 25,
-            "critical": 10
-        },
-        "tooltip-format": "At {capacity}%"
-    },
     "network": {
-        "format": "{icon}",
+        "format": "{icon} {essid}",
         "format-alt": "{bandwidthDownBytes} {icon}",
         "format-alt-click": "click-right",
         "format-icons": {
@@ -126,7 +79,7 @@
         "on-click": "blueberry"
     },
     "pulseaudio": {
-        "format": "{icon}",
+        "format": "{icon} {volume}%",
         "format-muted": "婢",
         "format-icons": {
             "phone": [
@@ -134,11 +87,7 @@
                 " ",
                 " "
             ],
-            "default": [
-                "奄",
-                "奔",
-                "墳"
-            ]
+            "default": ["", "", ""]
         },
         "scroll-step": 10,
         "on-click": "myxer",

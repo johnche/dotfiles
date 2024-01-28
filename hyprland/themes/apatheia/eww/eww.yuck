@@ -46,7 +46,7 @@
       :onclick "~/.config/hypr/scripts/exec_wofi application_launcher"
       (image
         :class "launcher-icon"
-        :path "assets/blossom.png"
+        :path "/home/johnche/.config/hypr/assets/cloud.png"
       :image-width 28))
   ))
 
@@ -275,7 +275,6 @@
     (volume)
     (wifi)
     (sep)
-    (bat)
     (mem)
     (sep)
     (clock_module)
@@ -443,45 +442,6 @@
     :hexpand "false"
     :vexpand "false"
     :spacing 0
-    (box
-      :class "sys_bat_box"
-      :orientation "h"
-      :space-evenly "false"
-      (circular-progress
-        :value {EWW_BATTERY["BAT0"].capacity}
-        :class "sys_bat"
-        :thickness 9
-        (label :text ""
-          :class "sys_icon_bat"
-          :limit-width 2
-        :wrap false))
-      (box
-        :orientation "v"
-        :space-evenly "false"
-        :spacing 0
-        :hexpand "false"
-        :vexpand "false"
-        (label
-          :text "battery"
-          :halign "start"
-          :class "sys_text_bat"
-          :limit-width 9
-        :wrap false)
-        (label
-          :text "${EWW_BATTERY["BAT0"].capacity}%"
-          :halign "start"
-          :class "sys_text_bat_sub"
-          :limit-width 22
-        :wrap false)
-        (label :text "${EWW_BATTERY["BAT0"].status}"
-          :halign "start"
-          :class "sys_text_bat_sub"
-          :limit-width 22
-        :wrap false)))
-    (label
-      :text "____________________________________"
-      :class "sys_sep"
-    :halign "center")
     (box
       :class "sys_mem_box"
       :orientation "h"
