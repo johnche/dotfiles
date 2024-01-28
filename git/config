@@ -26,3 +26,5 @@
 	insteadOf = https://github.com/
 [status]
 	showUntrackedFiles = all
+[init]
+	defaultBranch = master
