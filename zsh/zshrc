@@ -15,4 +15,4 @@ find "$XDG_CONFIG_HOME/zsh/plugged" -type f | while read file; do source "$file"
 source "$XDG_CONFIG_HOME/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "/Users/johnche/.local/lib/sdkman/bin/sdkman-init.sh" ]] && source "/Users/johnche/.local/lib/sdkman/bin/sdkman-init.sh"
+[[ -s "$HOME/.local/lib/sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.local/lib/sdkman/bin/sdkman-init.sh"
