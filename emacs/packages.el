@@ -5,4 +5,4 @@
 ;; modes
 (package! protobuf-mode)
 (package! svelte-mode)
-(package! nix-mode)
+(package! gradle-mode)
