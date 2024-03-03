@@ -4,7 +4,15 @@ set -e
 CWD="$(readlink -f $0 | xargs dirname)"
 
 setup() {
-	source "$CWD/$1/setup"
+	local -r setup_target="$CWD/$1/setup"
+
+	if [ -f "$setup_target" ]; then
+		echo "Setting up $1"
+		source "$setup_target"
+	else
+		echo "Setting up dir symlink for $1"
+		ln -s "$setup_target:h" "$HOME/.config/$1"
+	fi
 }
 
 error() {
