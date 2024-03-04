@@ -3,4 +3,7 @@
 declare -r CWD="$(readlink -f $0 | xargs dirname)"
 
 install -d $HOME/.config/i3
-ln -s "$CWD/config" "$HOME/.config/i3/config"
+ln -s "$CWD/i3" "$HOME/.config/i3/config"
+
+install -d $HOME/.config/i3status
+ln -s "$CWD/i3status" "$HOME/.config/i3status/config"
