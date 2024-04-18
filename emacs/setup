@@ -10,8 +10,8 @@ declare -r CWD="$(readlink -f $0 | xargs dirname)"
 command -v "emacs" || error "missing emacs (gui)"
 
 install -d $HOME/.local/lib
-git clone git@github.com:doomemacs/doomemacs "$HOME/.emacs.d"
-"$HOME/.emacs.d/bin/doom" install
+git clone git@github.com:doomemacs/doomemacs "$HOME/.config/emacs"
+"$HOME/.config/emacs/bin/doom" install
 
 rm -v $HOME/.config/doom/*
 ln -s "$CWD/config.el" "$HOME/.config/doom/config.el"

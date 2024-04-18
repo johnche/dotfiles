@@ -12,7 +12,7 @@ export PATH="/opt/local/bin:$PATH"
 export PATH="$PATH:/Applications/MacPorts/Emacs.app/Contents/MacOS"
 
 # doom bin dir
-export PATH="$PATH:$HOME/.emacs.d/bin"
+export PATH="$PATH:$HOME/.config/emacs/bin"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
