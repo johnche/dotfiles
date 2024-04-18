@@ -6,6 +6,8 @@ export DOOMDIR="$XDG_CONFIG_HOME/doom"
 export GOPATH="$HOME/.local/go"
 export GOBIN="$GOPATH/bin"
 
+export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
+
 # SDKMAN / jdk
 export SDKMAN_DIR="$HOME/.local/lib/sdkman"
 export SDKMAN_DIR_RAW='$HOME/.local/lib/sdkman'
