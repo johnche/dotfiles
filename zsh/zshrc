@@ -6,6 +6,10 @@ export NPM_CONFIG_PREFIX=$HOME/.local
 export PREFIX=$HOME/.local
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 eval "$(direnv hook zsh)"
 
 # =========== Keep at end ===============
