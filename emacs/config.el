@@ -136,6 +136,12 @@
 (after! lsp-ui
   (setq lsp-ui-doc-enable t))
 
+(after! dap-mode
+  (setq dap-python-debugger 'debugpy))
+
+(after! org
+  (setq org-agenda-files '("~/Documents/org/agenda.org")))
+
 ;; (setq lsp-svelte-plugin-typescript-enable t)
 
 ;; (after! svelte-mode
