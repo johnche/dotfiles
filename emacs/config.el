@@ -93,8 +93,8 @@
       deft-recursive t)
 
 (map!
- :desc "Next error" :n "] g" #'flycheck-next-error
- :desc "Previous error" :n "[ g" #'flycheck-previous-error
+ :desc "Next error" :n "] g g" #'flycheck-next-error
+ :desc "Previous error" :n "[ g g" #'flycheck-previous-error
  :desc "Next workspace" :n "<right>" #'+workspace:switch-next
  :desc "Previous workspace" :n "<left>" #'+workspace:switch-previous
  :desc "Window left" :n "M-s-<left>" #'evil-window-left
