@@ -86,6 +86,11 @@
 ;; is this one necessary?
 (setq lsp-rust-server 'rust-analyzer)
 
+(setq org-roam-directory "~/Documents/org")
+
+(setq deft-directory "~/Documents"
+      deft-extensions '("org" "txt" "json")
+      deft-recursive t)
 
 (map!
  :desc "Next error" :n "] g" #'flycheck-next-error
