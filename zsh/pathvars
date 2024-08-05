@@ -20,4 +20,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Go
 export PATH="$GOBIN:$PATH"
 
+# Nix (macos)
+export PATH="$PATH:/run/current-system/sw/bin"
+
 export PATH="$HOME/.local/bin:$PATH"
