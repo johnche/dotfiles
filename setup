@@ -10,8 +10,8 @@ setup() {
 		echo "Setting up $1"
 		source "$setup_target"
 	else
-		echo "Setting up dir symlink for $1"
-		ln -s "$setup_target:h" "$HOME/.config/$1"
+		echo "Setting up dir symlink for $1 at $HOME/.config/$1"
+		ln -s "$setup_target:h" "$HOME/.config/"
 	fi
 }
 
