@@ -17,3 +17,4 @@ rm -v $HOME/.config/doom/*
 ln -s "$CWD/config.el" "$HOME/.config/doom/config.el"
 ln -s "$CWD/init.el" "$HOME/.config/doom/init.el"
 ln -s "$CWD/packages.el" "$HOME/.config/doom/packages.el"
+ln -s "$CWD/themes" "$HOME/.config/doom/themes"
