@@ -4,6 +4,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'NLKNguyen/papercolor-theme'
 	Plug 'altercation/vim-colors-solarized'
 	Plug 'junegunn/seoul256.vim'
+	Plug 'sainnhe/everforest'
 
 	Plug 'sjl/gundo.vim'
 	Plug 'godlygeek/tabular'
@@ -47,12 +48,21 @@ set undodir=$HOME/.config/nvim/undodir
 set wildignore+=*/node_modules/*,*/.git/*
 
 syntax on
-"set background=light
-colorscheme gruvbox
 
-"set background=dark
+if has('termguicolors')
+  set termguicolors
+endif
+
+"set background=light
+set background=dark
+
+"colorscheme gruvbox
 "colorscheme seoul256
 "colorscheme gruvbox
+
+let g:everforest_background = 'soft'
+"let g:everforest_better_performance = 1
+colorscheme everforest
 
 set colorcolumn=101
 set scrolljump=5
