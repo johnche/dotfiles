@@ -3,21 +3,20 @@ fpath=("$HOME/.config/zsh/pure" $fpath)
 export XDG_CONFIG_HOME="$HOME/.config"
 export DOOMDIR="$XDG_CONFIG_HOME/doom"
 
-export GOPATH="$HOME/.local/go"
+export PREFIX=$HOME/.local
+
+# macos dynamic lib patching
+export DYLD_FALLBACK_LIBRARY_PATH="$PREFIX/lib"
+
+export NPM_CONFIG_PREFIX="$PREFIX/state/npm"
+
+export GOPATH="$PREFIX/go"
 export GOBIN="$GOPATH/bin"
 
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
 
 # SDKMAN / jdk
-export SDKMAN_DIR="$HOME/.local/lib/sdkman"
-export SDKMAN_DIR_RAW='$HOME/.local/lib/sdkman'
-
-export EDITOR='vim'
-export GIT="$HOME/git"
-export GREP_OPTIONS='--color=auto'
-
-# Requires source-highlight package
-#export LESSOPEN='| /opt/local/bin/src-hilite-lesspipe.sh %s'
-export LESS=' -R '
+export SDKMAN_DIR="$PREFIX/share/sdkman"
+export SDKMAN_DIR_RAW='$PREFIX/share/sdkman'
 
 #. "$HOME/.cargo/env"

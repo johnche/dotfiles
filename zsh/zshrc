@@ -2,13 +2,15 @@ source "$HOME/.config/zsh/zsh_options"
 source "$HOME/.config/zsh/pathvars"
 source "$HOME/.config/zsh/aliases"
 
-export NPM_CONFIG_PREFIX=$HOME/.local
-export PREFIX=$HOME/.local
-export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+export EDITOR='vim'
+export GIT="$HOME/git"
+export GREP_OPTIONS='--color=auto'
 
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# Requires source-highlight package
+#export LESSOPEN='| /opt/local/bin/src-hilite-lesspipe.sh %s'
+export LESS=' -R '
+
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 
 eval "$(direnv hook zsh)"
 
@@ -18,5 +20,11 @@ find "$XDG_CONFIG_HOME/zsh/plugged" -type f | while read file; do source "$file"
 
 source "$XDG_CONFIG_HOME/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+if [[ -d $PYENV_ROOT ]]; then
+	#export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "$HOME/.local/lib/sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.local/lib/sdkman/bin/sdkman-init.sh"
+[[ -s "$HOME/.local/share/sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.local/share/sdkman/bin/sdkman-init.sh"
