@@ -1,18 +1,27 @@
-local wezterm = require('wezterm');
-
-local plugins = {};
-table.insert(plugins, "https://github.com/adriankarlen/bar.wezterm");
-
-local config = {};
-for _, url in ipairs(plugins) do
-  local plug = wezterm.plugin.require(url);
-  plug.apply_to_config(config);
+local Plugins = {};
+function Plugins:init()
+  self.__index = self;
+  self.wezterm = require('wezterm');
+  local table = setmetatable({ urls = {}, config = {} }, self);
+  return table
 end
 
--- --local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm");
--- local bar = wezterm.plugin.require("ssh://git@github.com:adriankarlen/bar.wezterm");
--- bar.apply_to_config(plugins);
+function Plugins:add(url)
+  table.insert(self.urls, url)
+  return self
+end
 
-wezterm.log_warn(plugins)
+function Plugins:get_config()
+  for _, url in ipairs(self.urls) do
+    local plug = self.wezterm.plugin.require(url);
+    self.wezterm.log_warn(plug)
+    plug.apply_to_config(self.config);
+  end
 
-return config;
+  return self.config;
+end
+
+return Plugins:init()
+  --:add("https://github.com/adriankarlen/bar.wezterm")
+  --:add("/Users/johnche/.local/share/wezterm/git/bar.wezterm")
+  :get_config()

@@ -2,6 +2,7 @@ local wezterm = require('wezterm');
 local act = wezterm.action;
 
 local keys = {
+   { key = "o", mods = "CTRL|SHIFT", action = act.ShowDebugOverlay },
    { key = "T", mods = "CMD", action = act.SpawnTab 'CurrentPaneDomain' },
    { key = "Enter", mods = "CTRL", action = act.SplitPane {
        direction = 'Right',
