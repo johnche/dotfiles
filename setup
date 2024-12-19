@@ -30,6 +30,7 @@ command -v "jq" > /dev/null || error "Missing jq"
 
 install -d "$HOME/.local/bin"
 install -d "$HOME/.local/lib"
+install -d "$HOME/.local/share"
 
 #git clone git@github.com:johnche/brrr "$HOME/.local/brrr"
 #$HOME/.local/brrr/brrr
