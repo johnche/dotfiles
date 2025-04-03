@@ -33,6 +33,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-lua/lsp-status.nvim'
 	Plug 'Yggdroot/indentLine'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'uga-rosa/ccc.nvim'
 
 	Plug 'sheerun/vim-polyglot'
 	"Plug 'styled-components/vim-styled-components', {'branch': 'main'} "
