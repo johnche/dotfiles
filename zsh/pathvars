@@ -1,18 +1,11 @@
 # The earlier path segments gets higher priority
 # If unimportant, append the new addition. If important, prepend it
-#export PATH="$PATH:$GOBIN"
+# Start with most important top, and least important paths last
 
-#export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
-#export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
+# ============= Prepend (more important) =============
 # macports stuff
 export PATH="/opt/local/sbin:$PATH"
 export PATH="/opt/local/bin:$PATH"
-# Requires emacs-app (macports)
-export PATH="$PATH:/Applications/MacPorts/Emacs.app/Contents/MacOS"
-
-# doom bin dir
-export PATH="$PATH:$HOME/.config/emacs/bin"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -20,7 +13,16 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Go
 export PATH="$GOBIN:$PATH"
 
+export PATH="$HOME/.local/bin:$PATH"
+
+# ============= Append (less important) =============
+#export PATH="$PATH:/Applications/MacPorts/Emacs.app/Contents/MacOS"
+
+# doom bin dir
+export PATH="$PATH:$HOME/.config/emacs/bin"
+
 # Nix (macos)
 export PATH="$PATH:/run/current-system/sw/bin"
 
-export PATH="$HOME/.local/bin:$PATH"
+# Added by Toolbox App
+export PATH="$PATH:/Users/johnche/Library/Application Support/JetBrains/Toolbox/scripts"

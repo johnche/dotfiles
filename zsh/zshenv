@@ -8,10 +8,16 @@ export PREFIX=$HOME/.local
 # macos dynamic lib patching
 export DYLD_FALLBACK_LIBRARY_PATH="$PREFIX/lib"
 
+# macports headers
+export CPATH="/opt/local/include"
+export LIBRARY_PATH="/opt/local/lib"
+
 export NPM_CONFIG_PREFIX="$PREFIX/state/npm"
 
 export GOPATH="$PREFIX/go"
 export GOBIN="$GOPATH/bin"
+
+export LOCAL_BIN="$HOME/.local/bin"
 
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
 
@@ -19,4 +25,9 @@ export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
 export SDKMAN_DIR="$PREFIX/share/sdkman"
 export SDKMAN_DIR_RAW='$PREFIX/share/sdkman'
 
-#. "$HOME/.cargo/env"
+# Making ssh agent run as a service on macos is alot of work
+if [ "$SSH_AUTH_SOCK" = "" -a -x /usr/bin/ssh-agent ]; then
+	eval `/usr/bin/ssh-agent`
+fi
+
+. "$HOME/.cargo/env"
