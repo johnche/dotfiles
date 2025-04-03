@@ -9,45 +9,20 @@
 (setq user-full-name "John Chen"
       user-mail-address "john20chen@gmail.com")
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
-;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
-;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
-;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
-;; See 'C-h v doom-font' for documentation and more examples of what they
-;; accept. For example:
-;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-;;
-;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
-;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
-;; refresh your font settings. If Emacs still can't find your font, it likely
-;; wasn't installed correctly. Font issues are rarely Doom issues!
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-;;(setq doom-theme 'nil)
-;;(setq doom-theme 'doom-solarized-light)
 
 ;; set `doom-theme'
-(setq doom-everforest-background  "soft")  ; or hard (defaults to soft)
-(setq doom-theme 'doom-everforest) ; dark variant
-;;(setq doom-everforest-light-background  "soft") ; or hard (defaults to soft)
-;;(setq doom-theme 'doom-everforest-light) ; light variant
+;;(setq doom-theme 'nil)
+(setq doom-theme 'doom-solarized-light)
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+;;(setq doom-everforest-background  "soft")
+;;(setq doom-theme 'doom-everforest)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+;;(setq doom-everforest-background  "hard")
+;;(setq doom-theme 'doom-everforest-light)
+
+(setq display-line-numbers-type 'visual)
+(setq org-directory "~/Documents/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -85,6 +60,9 @@
 ;; (after! evil-escape (evil-escape-mode -1))
 ;; (after! evil-snipe (evil-snipe-mode -1))
 
+;; for modularizing
+;; (add-load-path! "<some path>")
+;; (require 'filename)
 
 ;; https://github.com/doomemacs/doomemacs/issues/4178
 (setq ns-right-alternate-modifier 'meta)
@@ -92,11 +70,20 @@
 ;; is this one necessary?
 (setq lsp-rust-server 'rust-analyzer)
 
-(setq org-roam-directory "~/Documents/org")
-
-(setq deft-directory "~/Documents"
+(setq deft-directory "~/Documents/org"
       deft-extensions '("org" "txt" "json")
       deft-recursive t)
+
+(setq calendar-week-start-day 1)
+
+(after! org-fancy-priorities
+  (setq
+   org-fancy-priorities-list '("[A]" "[B]" "[C]")
+   org-priority-faces
+   '((?A :foreground "#F85552" :weight bold)
+     (?B :foreground "#DFA000" :weight bold)
+     (?C :foreground "#8DA101" :weight bold)))
+  )
 
 (map!
  :desc "Next error" :n "] g g" #'flycheck-next-error
@@ -135,13 +122,13 @@
 
 
 (after! vterm
-  (add-hook 'vterm-mode-hook (lambda nil (evil-emacs-state t)))
+  (add-hook 'vterm-mode-hook 'evil-emacs-state)
   )
 
 (use-package! lsp
   :ensure
   :custom
-  (lsp-rust-analyzer-server-display-inlay-hints t)
+  (setq lsp-rust-analyzer-server-display-inlay-hints t)
   )
 
 (after! lsp-ui
@@ -150,8 +137,57 @@
 (after! dap-mode
   (setq dap-python-debugger 'debugpy))
 
-(after! org
-  (setq org-agenda-files '("~/Documents/org/agenda.org")))
+(use-package! websocket
+  :after org-roam)
+
+(setq org-roam-directory "~/Documents/org/roam")
+
+(use-package! org-roam-ui
+  :after org-roam ;; or :after org
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
+
+
+(use-package! bicep-mode
+  :load-path "~/.local/share/doom-plugged/bicep-mode")
+
+(add-to-list 'load-path "~/.local/share/doom-plugged/lsp-biome")
+
+;;;; ical -> doom emacs
+;;(defun calendar-helper () ;; doesn't have to be interactive
+;;  (cfw:open-calendar-buffer
+;;   :contents-sources
+;;   (list
+;;    (cfw:org-create-source "Purple")
+;;    (cfw:ical-create-source "Private" "~/emacs/calendar/john-shared.ics" "Green")
+;;    (cfw:ical-create-source "Webstep" "~/emacs/calendar/john.chen@webstep.no.ics" "Blue"))))
+;;(defun calendar-init ()
+;;  ;; switch to existing calendar buffer if applicable
+;;  (if-let (win (cl-find-if (lambda (b) (string-match-p "^\\*cfw:" (buffer-name b)))
+;;                           (doom-visible-windows)
+;;                           :key #'window-buffer))
+;;      (select-window win)
+;;    (calendar-helper)))
+;;(defun =my-calendar ()
+;;  "Activate (or switch to) *my* `calendar' in its workspace."
+;;  (interactive)
+;;  (if (featurep! :ui workspaces) ;; create workspace (if enabled)
+;;      (progn
+;;        (+workspace-switch "Calendar" t)
+;;        (doom/switch-to-scratch-buffer)
+;;        (calendar-init)
+;;        (+workspace/display))
+;;    (setq +calendar--wconf (current-window-configuration))
+;;    (delete-other-windows)
+;;    (switch-to-buffer (doom-fallback-buffer))
+;;    (calendar-init)))
+
+;;(after! apheleia-formatters
+;;  (set-formatter! 'prettier
+;;    '("apheleia-npx" "prettier" "--stdin-filepath" filepath)))
 
 ;; (setq lsp-svelte-plugin-typescript-enable t)
 
