@@ -18,3 +18,7 @@ ln -s "$CWD/config.el" "$HOME/.config/doom/config.el"
 ln -s "$CWD/init.el" "$HOME/.config/doom/init.el"
 ln -s "$CWD/packages.el" "$HOME/.config/doom/packages.el"
 ln -s "$CWD/themes" "$HOME/.config/doom/themes"
+
+echo "Notes: might want to set default gcc on macos, if used with macports"
+echo "\t port select --list gcc"
+echo "\t sudo port select gcc <version>"
